@@ -1,0 +1,35 @@
+{
+  "name": "@vandeurenglenn/monaco-utils",
+  "description": "Monaco utils",
+  "version": "1.0.0",
+  "exports": {
+    ".": {
+      "import": "./exports/index.js",
+      "types": "./exports/index.d.ts"
+    },
+    "./convert-theme": {
+      "import": "./exports/convert-theme.js",
+      "types": "./exports/convert-theme.d.ts"
+    },
+    "./convert-theme.js": "./exports/convert-theme.js"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "build": "npx -p typescript tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VandeurenGlenn/monaco-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VandeurenGlenn/monaco-utils/issues"
+  },
+  "homepage": "https://github.com/VandeurenGlenn/monaco-utils#readme"
+}
