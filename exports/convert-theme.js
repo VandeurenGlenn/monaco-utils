@@ -1,12 +1,12 @@
-const defaultOutputOptions = {
+const defaultOutput = {
     inherit: false,
     base: 'vs-dark',
-    rules: [{}],
+    rules: [],
     colors: {}
 };
 const convertTheme = (input, outputOptions) => {
     const output = {
-        ...defaultOutputOptions,
+        ...defaultOutput,
         ...outputOptions
     };
     for (const key of Object.keys(input.colors)) {

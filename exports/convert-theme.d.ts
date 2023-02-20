@@ -1,18 +1,32 @@
+type themeBaseType = 'vs-dark' | 'vs-light';
 type themeInput = {
     colors: {};
     tokenColors: [
         {
-            scope: string | [];
-            settings: {};
-            name: string;
+            scope?: string | [];
+            settings?: {};
+            name?: string;
         }
     ];
 };
-declare const convertTheme: (input: themeInput, outputOptions?: {}) => {
+type outputOptions = {
     inherit: boolean;
-    base: string;
-    rules: {}[];
+    base: themeBaseType;
+};
+type rule = {
+    name: string;
+    token: string;
+    foreground?: string;
+    background?: string;
+    fontStyle?: string;
+};
+type rules = rule[];
+type themeOutput = {
+    inherit: boolean;
+    base: themeBaseType;
+    rules?: rules;
     colors: {};
 };
+declare const convertTheme: (input: themeInput, outputOptions?: outputOptions) => themeOutput;
 export { convertTheme as default };
 //# sourceMappingURL=convert-theme.d.ts.map

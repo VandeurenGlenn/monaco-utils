@@ -1,1 +1,1 @@
-export { default as convertTheme } from './convert-theme';
+export { default as convertTheme } from './convert-theme.js';

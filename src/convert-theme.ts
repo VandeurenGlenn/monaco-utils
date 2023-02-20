@@ -1,22 +1,46 @@
-const defaultOutputOptions = {
-  inherit: false,
-  base: 'vs-dark',
-  rules: [{}],
-  colors : {}
-}
+type themeBaseType = 'vs-dark' | 'vs-light'
 
 type themeInput = {
   colors: {},
   tokenColors: [{
-    scope: string | [],
-    settings: {},
-    name: string
+    scope?: string | [],
+    settings?: {},
+    name?: string
   }]
 }
 
-const convertTheme = (input: themeInput, outputOptions?: {}) => {
+type outputOptions = {
+  inherit: boolean,
+  base: themeBaseType
+}
+
+type rule = {
+  name: string,
+  token: string,
+  foreground?: string,
+  background?: string,
+  fontStyle?: string
+}
+
+type rules = rule[]
+
+type themeOutput = {
+  inherit: boolean,
+  base: themeBaseType,
+  rules?: rules,
+  colors : {}
+}
+
+const defaultOutput = {
+  inherit: false,
+  base: 'vs-dark',
+  rules: [],
+  colors : {}
+}
+
+const convertTheme = (input: themeInput, outputOptions?: outputOptions): themeOutput => {
   const output = {
-    ...defaultOutputOptions,
+    ...defaultOutput,
     ...outputOptions
   }
 
@@ -38,7 +62,7 @@ const convertTheme = (input: themeInput, outputOptions?: {}) => {
           name: item.name,
           token,
           ...item.settings
-        })
+        } as rule)
       }
     }
   })
